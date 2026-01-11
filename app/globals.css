@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-crysthel: var(--font-crysthel);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Utilities */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Hide cursor globally - Aggressive */
+:root,
+body,
+* {
+  cursor: none !important;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Infinite Crossing Animation - Left to Right */
+@keyframes aurora-drift-right {
+  0% {
+    transform: translateX(-120%) scale(1);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.6;
+  }
+
+  /* Fade In */
+  40% {
+    opacity: 0.3;
+    transform: translateX(-20%) scale(1.1);
+  }
+
+  /* Dip */
+  60% {
+    opacity: 0.7;
+    transform: translateX(20%) scale(1);
+  }
+
+  /* Rise */
+  85% {
+    opacity: 0.4;
+  }
+
+  /* Dip */
+  100% {
+    transform: translateX(120vw) scale(1.2);
+    opacity: 0;
+  }
+
+  /* Exit */
+}
+
+/* Infinite Crossing Animation - Right to Left */
+@keyframes aurora-drift-left {
+  0% {
+    transform: translateX(120%) scale(1.1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  45% {
+    opacity: 0.8;
+    transform: translateX(20%) scale(1);
+  }
+
+  65% {
+    opacity: 0.3;
+    transform: translateX(-20%) scale(1.2);
+  }
+
+  85% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateX(-120vw) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-drift-right-slow {
+  animation: aurora-drift-right 35s linear infinite;
+  animation-delay: -10s;
+}
+
+.animate-drift-left-slow {
+  animation: aurora-drift-left 40s linear infinite;
+  animation-delay: -20s;
+}
+
+.animate-drift-right-fast {
+  animation: aurora-drift-right 30s linear infinite;
+  animation-delay: -5s;
 }
