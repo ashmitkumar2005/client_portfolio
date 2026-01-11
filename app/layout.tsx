@@ -23,8 +23,8 @@ const crysthel = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Anshu | Product Designer",
-  description: "Portfolio of Anshu, a Product Designer based in Bangalore.",
+  title: "Anshu | Data Analyst",
+  description: "Portfolio of Anshu, a Data Analyst based in Bangalore.",
 };
 
 import CustomCursor from "@/components/CustomCursor";

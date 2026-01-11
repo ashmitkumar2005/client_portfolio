@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { BsArrowUpRightCircle } from "react-icons/bs";
 
 export default function Navbar() {
@@ -8,8 +9,8 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 max-w-7xl mx-auto w-full text-sm font-medium text-gray-400">
             {/* Logo */}
             <div className="flex items-center">
-                <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center border border-white/20">
-                    <span className="text-white font-serif italic text-lg pr-0.5 pt-0.5">S</span>
+                <div className="w-10 h-10 relative">
+                    <Image src="/logo.svg" alt="AP Logo" fill className="object-contain rounded-lg" />
                 </div>
             </div>
 
